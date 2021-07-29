@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Iwr-kv-rvp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -21,33 +21,48 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYF-wP-dyH">
-                                <rect key="frame" x="175.5" y="495" width="63" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj6-Hh-Yae">
+                                <rect key="frame" x="50" y="346" width="314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="rO4-K2-fvG" firstAttribute="top" secondItem="gj6-Hh-Yae" secondAttribute="bottom" constant="64" id="FfE-4U-37W"/>
+                            <constraint firstItem="rO4-K2-fvG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="FwO-RQ-U8Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rO4-K2-fvG" secondAttribute="trailing" constant="30" id="TEh-Dx-a74"/>
+                            <constraint firstItem="gj6-Hh-Yae" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Vfo-yx-xPJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rO4-K2-fvG" secondAttribute="bottom" constant="397" id="mP3-Yk-O0h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gj6-Hh-Yae" secondAttribute="trailing" constant="50" id="zwz-rs-E3L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QkK-nB-yjz">
+                        <barButtonItem key="rightBarButtonItem" id="vL1-iY-rK8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="HYF-wP-dyH">
+                                <rect key="frame" x="331" y="4" width="63" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s9u-1N-yaV"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <constraints>
-                            <constraint firstItem="rO4-K2-fvG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3pA-ax-rEG"/>
-                            <constraint firstItem="rO4-K2-fvG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JeG-EK-ZqG"/>
-                            <constraint firstItem="HYF-wP-dyH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a99-tE-m5S"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rO4-K2-fvG" secondAttribute="trailing" constant="30" id="hOE-To-B7u"/>
-                            <constraint firstItem="rO4-K2-fvG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="tbp-bn-HSM"/>
-                            <constraint firstItem="HYF-wP-dyH" firstAttribute="top" secondItem="rO4-K2-fvG" secondAttribute="bottom" constant="30" id="yD3-K1-X0z"/>
-                        </constraints>
-                    </view>
+                            <connections>
+                                <action selector="submit:" destination="BYZ-38-t0r" id="ntb-iO-Fq0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="countLabel" destination="gj6-Hh-Yae" id="Tov-3U-bJm"/>
                         <outlet property="textField" destination="rO4-K2-fvG" id="qLK-Wc-32M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="116"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="115.84821428571428"/>
         </scene>
         <!--AfterVC-->
         <scene sceneID="kU1-bY-4RM">
@@ -78,7 +93,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvz-Va-F3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994" y="116"/>
+            <point key="canvasLocation" x="1902.8985507246377" y="115.84821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vrk-0s-WSi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iwr-kv-rvp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j2q-Wi-vjV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="e5b-b2-A3H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JfA-IP-kJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
         </scene>
     </scenes>
     <resources>
