@@ -22,7 +22,7 @@ class AfterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputField.delegate = self
-        
+
     }
 
 
@@ -34,3 +34,5 @@ extension AfterViewController : UITextFieldDelegate {
         return true
     }
 }
+
+
