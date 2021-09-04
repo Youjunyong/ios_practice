@@ -27,6 +27,7 @@ extension PizzaViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = pizzaTableView.dequeueReusableCell(withIdentifier: "pizzaCell") as! TableViewCell
         cell.nameLabel.text =  FoodOV.shared.pizza[indexPath.row]
         cell.priceLabel.text = String(Int.random(in: 100...400) * 100) + "Won"
+        
         let url = URL(string: "https://akamai.pizzahut.co.kr/2020pizzahut-prod/public/img/menu/"+FoodOV.shared.pizzaImg[indexPath.row]+".png")
         
         DispatchQueue.global().async { let data = try? Data(contentsOf: url!)
