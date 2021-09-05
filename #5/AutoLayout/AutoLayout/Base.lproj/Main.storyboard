@@ -16,17 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="redBox" translatesAutoresizingMaskIntoConstraints="NO" id="etu-ia-qi0" userLabel="redBox">
+                            <view contentMode="scaleToFill" restorationIdentifier="redBox" translatesAutoresizingMaskIntoConstraints="NO" id="etu-ia-qi0" userLabel="redBox">
                                 <rect key="frame" x="50" y="144" width="150" height="150"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="50" id="4d5-8y-KDn"/>
+                                    <constraint firstAttribute="height" constant="150" id="HIC-EP-d6c"/>
+                                    <constraint firstAttribute="width" constant="150" id="qMY-s7-XW7"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567890A" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBD-tg-cgd">
-                                <rect key="frame" x="294.5" y="209" width="109.5" height="20.5"/>
+                                <rect key="frame" x="297" y="209" width="107" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-HE-0AZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-HE-0AZ">
                                 <rect key="frame" x="150" y="494" width="114" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -48,6 +53,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="reboxHeight" destination="HIC-EP-d6c" id="gRy-eC-Cwy"/>
                         <outlet property="redBox" destination="etu-ia-qi0" id="56P-Oe-MeC"/>
                     </connections>
                 </viewController>

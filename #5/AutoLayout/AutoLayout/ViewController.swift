@@ -10,23 +10,20 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var redBox: UIView!
+    @IBOutlet weak var reboxHeight: NSLayoutConstraint!
+    
     
     @IBAction func btn(_ sender: Any) {
-        var frame = redBox.frame.size
-        frame.width = 500
-        frame.height = 500
-//        redBox.frame.size = frame
-        print(frame)
+        reboxHeight.constant += 100
+        if reboxHeight.priority.rawValue == 1000{
+            reboxHeight.priority = UILayoutPriority(999)
+            }
+        
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        var frame = redBox.frame.size
         
-        
-//        redBox.frame.size = frame
-        print(frame)
-        // Do any additional setup after loading the view.
     }
 
 
