@@ -10,17 +10,21 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var upperContiner: UIView!
-    @IBOutlet weak var lowerContiner: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
     
+    
+    
+    @IBOutlet weak var cancel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        upperContiner.backgroundColor = UIColor.systemPink
-        lowerContiner.backgroundColor = UIColor.systemGray
-        let background = UIImage(named: "background")
+        
+        
+        let background = UIImage(named: "background_")
         backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.image = background
+        cancel.isUserInteractionEnabled = false
+        profileImage.layer.cornerRadius = profileImage.frame.width / 2.4
     }
 
 
