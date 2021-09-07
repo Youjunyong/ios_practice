@@ -44,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("applicationWIllTerminate")
+    }
 
     // MARK: UISceneSession Lifecycle
 
