@@ -5,7 +5,8 @@
 # #1
 
 간단한 퀴즈 앱을 만들어보았다.
-https://user-images.githubusercontent.com/46234386/132441200-f23ad0f0-91b7-44a7-a748-1d81de128f86.mp4
+![#1](https://user-images.githubusercontent.com/46234386/132441394-07f02f22-c518-4d38-b862-eef8a33326bb.gif)
+
 
 
 ### 연습 목적
