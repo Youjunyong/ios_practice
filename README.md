@@ -4,8 +4,8 @@
 
 # #1
 
-간단한 퀴즈 앱을 만들었다.
-
+간단한 퀴즈 앱을 만들어보았다.
+https://user-images.githubusercontent.com/46234386/132441200-f23ad0f0-91b7-44a7-a748-1d81de128f86.mp4
 
 
 ### 연습 목적
@@ -15,6 +15,11 @@
 3. Singleton 패턴을 통해 데이터 전달하기.
 4. Local 푸시 알람 (`UserNotifications` 프레임워크 사용)
 5. `UIAlertController` 를 사용하여 알림창 띄우기
+ ++ UIImagePicker 
+
+
+
+
 
 
 
