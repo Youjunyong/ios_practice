@@ -5,7 +5,10 @@
 # #1
 
 간단한 퀴즈 앱을 만들어보았다.
-![#1](https://user-images.githubusercontent.com/46234386/132441394-07f02f22-c518-4d38-b862-eef8a33326bb.gif)
+
+<img width="50%" src="https://user-images.githubusercontent.com/46234386/132441394-07f02f22-c518-4d38-b862-eef8a33326bb.gif"/>
+
+
 
 
 
