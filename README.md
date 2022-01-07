@@ -55,7 +55,7 @@
 
 AutoLayout을 연습하기 위해서 카카오톡 프로필페이지를 만들어보았다.
 
-<img width="30%" src = "https://user-images.githubusercontent.com/46234386/132448299-2f55b3d0-3756-4204-b9c1-cc95a2514333.gif"/>
+<img width="30%" src = "https://user-images.githubusercontent.com/46234386/132615976-fea6ac12-da0c-4593-b15b-cd883d17ae8e.gif"/>
 
 ### Guide line (개발자문서)
 ![image](https://user-images.githubusercontent.com/46234386/132448227-294f7828-af37-4019-8b48-c40b43a61606.png)
@@ -77,11 +77,20 @@ AutoLayout을 연습하기 위해서 카카오톡 프로필페이지를 만들�
 2. 글자 및 아이콘이 흰색이다. 만약 사용자가 백그라운드를 흰색계열로 한다면 가독성은 어떻게할까?
  -> Background Dimming View를 추가한다. (Alpha값으로 투명도를 주고, 검정색 View로 덮어 최소한의 가독성을 확보한다.)
 3. 프로필 사진의 모서리가 둥글다. 어떻게 구현할까 ?
-`imageView.layer.conerRadius = imageView.frame.width/3`
+`imageView.layer.cornerRadius = imageView.frame.width/3`
 `//imageView.clipsToBounds = true // 내부에 SubView가 있을때 사용한다. 이번 연습에서는 필요없음`
 4. TextLabel은 Intrinsic size 적용할것.
 5. **화면을 회전했을때도 고려해서 SuperView와 SafeArea와 Constraint 주기.**
 
+- dimming View를 구현하고 나니 Status Bar의 디폴트는 검정색이다. 어떻게 하면 흰색으로 바꿀까?
+    - UIApplication안의 enum인 UIStatusBarStyle
 
+![image](https://user-images.githubusercontent.com/46234386/132616118-c46012ed-6a46-4ac5-9ab4-3ec2e874caee.png)
+
+```swift
+ovveride var preferredStatusBarStyle: UIStatusBarStyle{
+	return  .lightContent
+}
+```
 
 
