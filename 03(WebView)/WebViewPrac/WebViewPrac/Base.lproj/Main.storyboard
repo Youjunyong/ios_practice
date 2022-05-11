@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Asr-lB-uIk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebViewPrac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QAE-e2-qer">
+                                <rect key="frame" x="50" y="288" width="314" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="w4n-ZP-4Ta">
+                                <rect key="frame" x="73" y="433" width="268" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWJ-Yd-ssA" userLabel="safari">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                        <state key="normal" title="Safari"/>
+                                        <connections>
+                                            <action selector="safariBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5J3-31-TK9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pu-4m-7Kc">
+                                        <rect key="frame" x="73" y="0.0" width="84" height="30"/>
+                                        <state key="normal" title="WkWebview"/>
+                                        <connections>
+                                            <action selector="webViewBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hBk-Zo-iMn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-ug-OkP">
+                                        <rect key="frame" x="190" y="0.0" width="78" height="30"/>
+                                        <state key="normal" title="SFSafariVC"/>
+                                        <connections>
+                                            <action selector="SFsafari:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WRt-yl-ZrQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6pu-4m-7Kc" firstAttribute="centerY" secondItem="w4n-ZP-4Ta" secondAttribute="centerY" id="Fsz-x5-pB9"/>
+                                    <constraint firstItem="Lq8-ug-OkP" firstAttribute="leading" secondItem="6pu-4m-7Kc" secondAttribute="trailing" constant="33" id="pNk-9Y-zRG"/>
+                                    <constraint firstItem="6pu-4m-7Kc" firstAttribute="leading" secondItem="NWJ-Yd-ssA" secondAttribute="trailing" constant="33" id="zQl-ge-1j1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w4n-ZP-4Ta" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="F28-nR-iBp"/>
+                            <constraint firstItem="w4n-ZP-4Ta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WC4-ZL-TJ3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QAE-e2-qer" secondAttribute="trailing" constant="50" id="g6p-hj-M70"/>
+                            <constraint firstItem="QAE-e2-qer" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="iN0-SY-Cq5"/>
+                            <constraint firstItem="QAE-e2-qer" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="irS-dw-Jmz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MuI-6d-vvE"/>
+                    <connections>
+                        <outlet property="urlTextField" destination="QAE-e2-qer" id="ITk-xw-cYG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="115.84821428571428"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="m0j-Sg-ehx">
+            <objects>
+                <viewController storyboardIdentifier="webViewController" id="zxH-wv-qZJ" customClass="WebViewController" customModule="WebViewPrac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ggn-am-gfe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2Z-7n-n3E">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qmQ-v3-80o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qmQ-v3-80o" firstAttribute="bottom" secondItem="s2Z-7n-n3E" secondAttribute="bottom" id="DIm-MH-v1C"/>
+                            <constraint firstItem="s2Z-7n-n3E" firstAttribute="leading" secondItem="qmQ-v3-80o" secondAttribute="leading" id="XxD-cn-xyk"/>
+                            <constraint firstItem="qmQ-v3-80o" firstAttribute="trailing" secondItem="s2Z-7n-n3E" secondAttribute="trailing" id="eRh-4Y-G9I"/>
+                            <constraint firstItem="s2Z-7n-n3E" firstAttribute="top" secondItem="qmQ-v3-80o" secondAttribute="top" id="oan-jL-QR9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="s2Z-7n-n3E" id="2gr-jg-VaO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5K-Wq-Lr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844.9275362318842" y="113.83928571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EYY-a0-LHw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Asr-lB-uIk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k7f-gP-8FZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GDb-9u-s3M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6S-yB-OXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
