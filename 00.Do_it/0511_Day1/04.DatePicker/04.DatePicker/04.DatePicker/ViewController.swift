@@ -9,12 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var selectedTime: String?
+    
     lazy var nowTimeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.text = "현재시간: "
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
     }()
 
@@ -23,7 +25,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.text = "선택시간: "
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
     }()
     
@@ -39,22 +41,40 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY년 MM월 DD일 HH시 mm분 ss초"
-        let nowTime = dateFormatter.string(from: Date())
-        self
-        
-        // Do any additional setup after loading the view.
+        timeUpdate()
     }
 
+    
+    private func timeUpdate(){
+        func checkAlarm(nowTime: String){
+            if self.selectedTime != nil, self.selectedTime == nowTime{
+                view.backgroundColor = .red
+            }else{
+                view.backgroundColor = .white
+            }
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            let dateFormatter = DateFormatter()
+            let date = Date()
+            dateFormatter.dateFormat = "YYYY년 MM월 d일 E요일 HH시 mm분 ss초"
+            let nowTime = dateFormatter.string(from: date)
+            self?.nowTimeLabel.text = "현재시간: " + nowTime
+            
+            dateFormatter.dateFormat = "YYYY년 MM월 d일 E요일 HH시 mm분"
+            checkAlarm(nowTime: dateFormatter.string(from: date))
+        }
+    }
+    
     @objc func dateChanged(_ sender: UIDatePicker){
-        
-        self.selectedTimeLabel.text = "선택시간: " +
-        
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY년 MM월 d일 E요일 HH시 mm분"
+        self.selectedTime = dateFormatter.string(from: sender.date)
+        self.selectedTimeLabel.text = "선택시간: " + (selectedTime ?? "")
     }
 
     private func configureUI(){
+ 
         [ nowTimeLabel, selectedTimeLabel, datePicker].forEach{
             view.addSubview($0)
         }
