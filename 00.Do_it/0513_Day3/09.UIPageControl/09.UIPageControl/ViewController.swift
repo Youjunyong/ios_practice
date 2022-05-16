@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         pageControl.numberOfPages = 6
         pageControl.pageIndicatorTintColor = .darkGray
         pageControl.currentPageIndicatorTintColor = .green
-        pageControl.addTarget(self, action: #selector(pageChanged(_:)), for: .valueChanged)
+        pageControl.addTarget(self, action: #selector(pageChanged(_:)), for: .valueCshanged)
         return pageControl
     }()
     
