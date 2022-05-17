@@ -8,13 +8,33 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var imageWidthConstarint: NSLayoutConstraint?
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+
+        return stackView
+    }()
+    
+    let messageTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
+        return textField
+    }()
+    
     let messageLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.text = "no message"
+        label.text = "Message"
+        label.textColor = UIColor.black
         return label
     }()
+
     
     let editButton: UIButton = {
         let btn = UIButton()
@@ -40,32 +60,49 @@ class ViewController: UIViewController {
         configureUI()
     }
     @objc func goEdit(){
-        self.navigationController?.pushViewController(EditViewController(), animated: true)
+        let nextVC = EditViewController()
+        nextVC.delegate = self
+        nextVC.messageTextField.text = self.messageTextField.text!
+        nextVC.send = { [weak self] data in
+            self?.messageTextField.text = data
+        }
+        nextVC.lampOnOff = {[weak self] switchValue in
+            if switchValue {
+                self?.imageView.image = UIImage(named: "lamp_on")
+            }else{
+                self?.imageView.image = UIImage(named: "lamp_off")
+            }
+        }
+
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    
     private func configureUI(){
-        
-        
         // MARK: - NavigationBarButtonItem
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(goEdit))
-        
+        [messageLabel ,messageTextField].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        view.addSubview(stackView)
         view.addSubview(imageView)
         view.addSubview(editButton)
-        view.addSubview(messageLabel)
+        self.imageWidthConstarint = imageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width)
+        self.imageWidthConstarint?.isActive = true
         NSLayoutConstraint.activate([
             editButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             editButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            imageView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 30),
+            
+            imageView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 50),
             imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             
-            messageLabel.centerYAnchor.constraint(equalTo: editButton.centerYAnchor),
-            messageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 40)
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            stackView.topAnchor.constraint(equalTo: editButton.bottomAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 80),
             
+            messageTextField.widthAnchor.constraint(equalTo: stackView.widthAnchor ),
         ])
-        
-        
     }
 
 }
