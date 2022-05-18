@@ -17,6 +17,7 @@ class TableViewCell: UITableViewCell {
     
     let todoImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -39,8 +40,8 @@ class TableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             todoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            todoImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            todoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            todoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            todoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             todoImageView.widthAnchor.constraint(equalTo: todoImageView.heightAnchor),
             
             titleLabel.leadingAnchor.constraint(equalTo: todoImageView.trailingAnchor , constant: 20),

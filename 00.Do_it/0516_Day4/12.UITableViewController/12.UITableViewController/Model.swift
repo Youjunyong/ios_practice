@@ -8,7 +8,8 @@
 import Foundation
 
 struct Model {
-    static let shared = Model()
+    static var shared = Model()
+    
     var items = ["책 구매", "철수와 약속", "스터디 준비"]
     var itemsImageFile = ["cart", "clock", "pencil"]
 }
