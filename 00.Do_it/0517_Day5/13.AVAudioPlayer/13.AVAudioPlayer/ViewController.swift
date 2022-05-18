@@ -17,6 +17,14 @@ class ViewController: UIViewController , AVAudioPlayerDelegate{
     let MAX_VOLUME: Float = 10.0
     var progressTimer: Timer!
     
+    let statusImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "stop")
+        return imageView
+    }()
+    
     let recordTimeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -196,19 +204,22 @@ class ViewController: UIViewController , AVAudioPlayerDelegate{
     }
 
     @objc func play(){
-        print(#function)
+        statusImageView.image = UIImage(named: "play")
+
         audioPlayer.play()
         setPlayButtons(play: false, pause: true, stop: true)
         progressTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         
     }
     @objc func pause(){
-        print(#function)
+        statusImageView.image = UIImage(named: "pause")
+
         audioPlayer.pause()
         setPlayButtons(play: true, pause: false, stop: true)
     }
     @objc func stop(){
-        print(#function)
+        statusImageView.image = UIImage(named: "stop")
+
         audioPlayer.stop()
         setPlayButtons(play: true, pause: false, stop: false)
         progressView.progress = 0
@@ -218,6 +229,8 @@ class ViewController: UIViewController , AVAudioPlayerDelegate{
     }
     
     @objc func record(_ sender: UIButton){
+        statusImageView.image = UIImage(named: "record")
+
         if (sender as AnyObject).titleLabel!.text == "Record" {
             audioRecorder.record()
             (sender as AnyObject).setTitle("Stop", for: UIControl.State())
@@ -356,7 +369,7 @@ class ViewController: UIViewController , AVAudioPlayerDelegate{
     }
     
     private func configreRecordSwtich(){
-        [recordSwitch, recordLabel, recordTimeLabel, recordButton].forEach {
+        [recordSwitch, recordLabel, recordTimeLabel, recordButton, statusImageView].forEach {
             view.addSubview($0)
         }
         NSLayoutConstraint.activate([
@@ -370,7 +383,12 @@ class ViewController: UIViewController , AVAudioPlayerDelegate{
             recordButton.topAnchor.constraint(equalTo: recordLabel.bottomAnchor, constant: 30),
             
             recordTimeLabel.leadingAnchor.constraint(equalTo: recordButton.trailingAnchor, constant: 30),
-            recordTimeLabel.centerYAnchor.constraint(equalTo: recordButton.centerYAnchor)
+            recordTimeLabel.centerYAnchor.constraint(equalTo: recordButton.centerYAnchor),
+            
+            statusImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            statusImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            statusImageView.topAnchor.constraint(equalTo: recordTimeLabel.bottomAnchor, constant: 50),
+            statusImageView.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
