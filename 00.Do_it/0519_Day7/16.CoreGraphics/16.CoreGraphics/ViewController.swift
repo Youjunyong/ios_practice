@@ -91,7 +91,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    //MARK: - Life cycle
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
