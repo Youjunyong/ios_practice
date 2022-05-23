@@ -11,10 +11,8 @@ class SketchVC: UIViewController {
     
     //MARK: - Properties
     let sketchView = SketchView()
-    let viewModel = SketchViewModel()
+    var viewModel = SketchViewModel()
     var lastPoint: CGPoint!
-    var lineSize: CGFloat = 2.0
-    var lineColor = UIColor.red.cgColor
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -36,9 +34,9 @@ class SketchVC: UIViewController {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIGraphicsBeginImageContext(sketchView.imageView.frame.size)
-        UIGraphicsGetCurrentContext()?.setStrokeColor(lineColor)
+        UIGraphicsGetCurrentContext()?.setStrokeColor(viewModel.model.currentCgColor)
         UIGraphicsGetCurrentContext()?.setLineCap(CGLineCap.round)
-        UIGraphicsGetCurrentContext()?.setLineWidth(lineSize)
+        UIGraphicsGetCurrentContext()?.setLineWidth(viewModel.model.currentLineWidth)
         
         let touch = touches.first! as UITouch
         let currentPoint = touch.location(in: sketchView.imageView)
@@ -54,9 +52,9 @@ class SketchVC: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIGraphicsBeginImageContext(sketchView.imageView.frame.size)
-        UIGraphicsGetCurrentContext()?.setStrokeColor(lineColor)
+        UIGraphicsGetCurrentContext()?.setStrokeColor(viewModel.model.currentCgColor)
         UIGraphicsGetCurrentContext()?.setLineCap(CGLineCap.round)
-        UIGraphicsGetCurrentContext()?.setLineWidth(lineSize)
+        UIGraphicsGetCurrentContext()?.setLineWidth(viewModel.model.currentLineWidth)
         
         sketchView.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: sketchView.imageView.frame.size.width, height: sketchView.imageView.frame.size.height))
         
@@ -71,6 +69,28 @@ class SketchVC: UIViewController {
         sketchView.imageView.image = nil
     }
     
+    @objc func setColor(_ sender: UIButton){
+        let colorType = SketchModel.ColorType.init(rawValue: sender.tag)!
+        viewModel.changeColor(color: colorType)
+        sketchView.colorLabel.text = "색: \(colorType)"
+    }
+    
+    @objc func setWidth(_ sender: UIButton){
+        let widthControl = SketchModel.WidthControl(rawValue: CGFloat(sender.tag))
+        switch widthControl {
+        case .increase:
+            viewModel.model.currentLineWidth += 1.0
+        case .reduce:
+            if viewModel.model.currentLineWidth > 1 {
+                viewModel.model.currentLineWidth -= 1.0
+            }
+        case .none:
+            return
+        }
+        sketchView.widthLabel.text = "두께: \(viewModel.model.currentLineWidth)"
+        print(viewModel.model.currentLineWidth)
+    }
+    
     //MARK: - Motion Event
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
@@ -83,6 +103,12 @@ class SketchVC: UIViewController {
         sketchView.translatesAutoresizingMaskIntoConstraints = false
         sketchView.dismissButton.addTarget(self, action: #selector(backToBerforeVC), for: .touchUpInside)
         sketchView.clearButton.addTarget(self, action: #selector(clear), for: .touchUpInside)
+        sketchView.redButton.addTarget(self, action: #selector(setColor(_:)), for: .touchUpInside)
+        sketchView.blueButton.addTarget(self, action: #selector(setColor(_:)), for: .touchUpInside)
+        sketchView.blackButton.addTarget(self, action: #selector(setColor(_:)), for: .touchUpInside)
+        sketchView.widthDecButton.addTarget(self, action: #selector(setWidth(_:)), for: .touchUpInside)
+        sketchView.widthIncButton.addTarget(self, action: #selector(setWidth(_:)), for: .touchUpInside)
+        
         self.view.addSubview(sketchView)
         NSLayoutConstraint.activate([
             sketchView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),

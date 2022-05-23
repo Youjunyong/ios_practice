@@ -39,7 +39,14 @@ class SketchView: UIView {
     let colorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "색 변경 & 굵기 변경"
+        label.text = "색/두께 : "
+        label.textColor = .black
+        return label
+    }()
+    
+    let widthLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         return label
     }()
@@ -48,6 +55,7 @@ class SketchView: UIView {
        let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("🔴", for: .normal)
+        btn.tag = 100
         btn.setTitleColor(UIColor.red, for: .normal)
         return btn
     }()
@@ -56,6 +64,7 @@ class SketchView: UIView {
        let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("🔵", for: .normal)
+        btn.tag = 200
         btn.setTitleColor(UIColor.red, for: .normal)
         return btn
     }()
@@ -64,6 +73,7 @@ class SketchView: UIView {
        let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("⚫️", for: .normal)
+        btn.tag = 300
         btn.setTitleColor(UIColor.red, for: .normal)
         return btn
     }()
@@ -72,6 +82,7 @@ class SketchView: UIView {
        let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("⬇️", for: .normal)
+        btn.tag = 400
         btn.setTitleColor(UIColor.red, for: .normal)
         return btn
     }()
@@ -80,6 +91,7 @@ class SketchView: UIView {
        let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("⬆️", for: .normal)
+        btn.tag = 500
         btn.setTitleColor(UIColor.red, for: .normal)
         return btn
     }()
@@ -129,7 +141,7 @@ class SketchView: UIView {
     }
     
     private func configureUI(){
-        [colorLabel , redButton, blueButton, blackButton, widthIncButton, widthDecButton].forEach {
+        [colorLabel , widthLabel, redButton, blueButton, blackButton, widthIncButton, widthDecButton].forEach {
             colorButtonStackView.addArrangedSubview($0)
         }
         
@@ -140,14 +152,20 @@ class SketchView: UIView {
         [horizontalStackView, label , imageView, colorButtonStackView].forEach {
             verticalStackView.addArrangedSubview($0)
         }
-        addSubview(verticalStackView)
+        
+        [verticalStackView, colorButtonStackView].forEach {
+            addSubview($0)
+        }
+        
         NSLayoutConstraint.activate([
-            colorLabel.heightAnchor.constraint(equalToConstant: 20),
+            colorButtonStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            colorButtonStackView.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor),
+            colorButtonStackView.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: verticalStackView.bottomAnchor),
             imageView.topAnchor.constraint(equalTo: label.bottomAnchor),
             label.heightAnchor.constraint(equalToConstant: 20),
             verticalStackView.topAnchor.constraint(equalTo: topAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            verticalStackView.bottomAnchor.constraint(equalTo: colorButtonStackView.topAnchor),
             verticalStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
