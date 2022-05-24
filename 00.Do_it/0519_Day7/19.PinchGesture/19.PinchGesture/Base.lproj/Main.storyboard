@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Iqv-bK-wGb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_9_PinchGesture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cap-99-IxW">
+                                <rect key="frame" x="186.5" y="438" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaz-Te-50u">
+                                <rect key="frame" x="0.0" y="831" width="414" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Image Pinch Test"/>
+                                <connections>
+                                    <segue destination="9su-j2-cy3" kind="push" id="g2q-jT-cJR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cap-99-IxW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AXJ-sd-nRH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gaz-Te-50u" secondAttribute="trailing" id="DHF-al-sQO"/>
+                            <constraint firstItem="cap-99-IxW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d5O-dU-MLC"/>
+                            <constraint firstItem="gaz-Te-50u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="efp-cr-v2v"/>
+                            <constraint firstItem="gaz-Te-50u" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xMD-58-JqX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rZA-X9-WNY"/>
+                    <connections>
+                        <outlet property="textLabel" destination="cap-99-IxW" id="j47-ct-MEY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1389.8550724637682" y="83.705357142857139"/>
+        </scene>
+        <!--Image Pinch View Controller-->
+        <scene sceneID="QVa-Cm-rDP">
+            <objects>
+                <viewController id="9su-j2-cy3" customClass="ImagePinchViewController" customModule="_9_PinchGesture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dya-Hg-9iA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-6" translatesAutoresizingMaskIntoConstraints="NO" id="ZhD-yD-J06">
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xhb-zW-2EW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xhb-zW-2EW" firstAttribute="trailing" secondItem="ZhD-yD-J06" secondAttribute="trailing" id="Tu4-Pc-sEq"/>
+                            <constraint firstItem="ZhD-yD-J06" firstAttribute="leading" secondItem="Xhb-zW-2EW" secondAttribute="leading" id="XVD-TV-SIp"/>
+                            <constraint firstItem="Xhb-zW-2EW" firstAttribute="bottom" secondItem="ZhD-yD-J06" secondAttribute="bottom" constant="50" id="rcg-3M-kcQ"/>
+                            <constraint firstItem="ZhD-yD-J06" firstAttribute="top" secondItem="Xhb-zW-2EW" secondAttribute="top" id="uOP-Oh-ppg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u3G-er-J5g"/>
+                    <connections>
+                        <outlet property="imageView" destination="ZhD-yD-J06" id="mv1-9C-8pQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vLm-Y9-Cuh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2150.7246376811595" y="83.705357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JJ4-Z2-qjw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iqv-bK-wGb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f1F-g6-c3S">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tar-pZ-ohZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csX-vy-WRW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479.71014492753625" y="83.705357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="img-6" width="1686" height="2448"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

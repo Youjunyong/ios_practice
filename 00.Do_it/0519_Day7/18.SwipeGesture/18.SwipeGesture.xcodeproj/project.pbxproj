@@ -39,6 +39,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1004EEF283B54C90047004A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E1CC98F9283729BC00A0C059 /* Main.storyboard */,
+				E1CC98FC283729BD00A0C059 /* Assets.xcassets */,
+				E1CC98FE283729BD00A0C059 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		E1CC98E7283729BC00A0C059 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +68,12 @@
 		E1CC98F2283729BC00A0C059 /* 18.SwipeGesture */ = {
 			isa = PBXGroup;
 			children = (
+				E1CC9901283729BD00A0C059 /* Info.plist */,
+				E1004EEF283B54C90047004A /* Resource */,
 				E1CC98F3283729BC00A0C059 /* AppDelegate.swift */,
 				E1CC98F5283729BC00A0C059 /* SceneDelegate.swift */,
 				E1CC990728372ED700A0C059 /* Model.swift */,
 				E1CC98F7283729BC00A0C059 /* ViewController.swift */,
-				E1CC98F9283729BC00A0C059 /* Main.storyboard */,
-				E1CC98FC283729BD00A0C059 /* Assets.xcassets */,
-				E1CC98FE283729BD00A0C059 /* LaunchScreen.storyboard */,
-				E1CC9901283729BD00A0C059 /* Info.plist */,
 			);
 			path = 18.SwipeGesture;
 			sourceTree = "<group>";

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1004F3C283C61410047004A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1004F3B283C61410047004A /* DrawView.swift */; };
 		E15ABC472835B9D300801F42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15ABC462835B9D300801F42 /* AppDelegate.swift */; };
 		E15ABC492835B9D300801F42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15ABC482835B9D300801F42 /* SceneDelegate.swift */; };
 		E15ABC4B2835B9D300801F42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15ABC4A2835B9D300801F42 /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1004F3B283C61410047004A /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		E15ABC432835B9D300801F42 /* 16.CoreGraphics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 16.CoreGraphics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15ABC462835B9D300801F42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E15ABC482835B9D300801F42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +37,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1004F41283C79850047004A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1004F3B283C61410047004A /* DrawView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1004F42283C79880047004A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E15ABC4A2835B9D300801F42 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E1004F43283C79970047004A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E15ABC512835B9D400801F42 /* LaunchScreen.storyboard */,
+				E15ABC462835B9D300801F42 /* AppDelegate.swift */,
+				E15ABC482835B9D300801F42 /* SceneDelegate.swift */,
+				E15ABC4F2835B9D400801F42 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		E15ABC3A2835B9D300801F42 = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +83,10 @@
 		E15ABC452835B9D300801F42 /* 16.CoreGraphics */ = {
 			isa = PBXGroup;
 			children = (
-				E15ABC462835B9D300801F42 /* AppDelegate.swift */,
-				E15ABC482835B9D300801F42 /* SceneDelegate.swift */,
-				E15ABC4A2835B9D300801F42 /* ViewController.swift */,
-				E15ABC4F2835B9D400801F42 /* Assets.xcassets */,
-				E15ABC512835B9D400801F42 /* LaunchScreen.storyboard */,
 				E15ABC542835B9D400801F42 /* Info.plist */,
+				E1004F43283C79970047004A /* Resource */,
+				E1004F42283C79880047004A /* Controller */,
+				E1004F41283C79850047004A /* View */,
 			);
 			path = 16.CoreGraphics;
 			sourceTree = "<group>";
@@ -134,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1004F3C283C61410047004A /* DrawView.swift in Sources */,
 				E15ABC4B2835B9D300801F42 /* ViewController.swift in Sources */,
 				E15ABC472835B9D300801F42 /* AppDelegate.swift in Sources */,
 				E15ABC492835B9D300801F42 /* SceneDelegate.swift in Sources */,
