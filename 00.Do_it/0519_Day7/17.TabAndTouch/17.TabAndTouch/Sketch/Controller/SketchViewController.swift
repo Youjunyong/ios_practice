@@ -21,7 +21,7 @@ class SketchVC: UIViewController {
         configure()
     }
     
-    //MARK: - 화면 전환
+    //MARK: - Dismiss
     @objc func backToBerforeVC(){
         self.presentingViewController?.dismiss(animated: true)
     }
@@ -37,14 +37,12 @@ class SketchVC: UIViewController {
         UIGraphicsGetCurrentContext()?.setStrokeColor(viewModel.model.currentCgColor)
         UIGraphicsGetCurrentContext()?.setLineCap(CGLineCap.round)
         UIGraphicsGetCurrentContext()?.setLineWidth(viewModel.model.currentLineWidth)
-        
         let touch = touches.first! as UITouch
         let currentPoint = touch.location(in: sketchView.imageView)
         sketchView.imageView.draw(CGRect(x: 0, y: 0, width: sketchView.imageView.frame.size.width, height: sketchView.imageView.frame.size.height))
         UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
         UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: currentPoint.x, y: currentPoint.y))
         UIGraphicsGetCurrentContext()?.strokePath()
-        
         sketchView.imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         lastPoint = currentPoint
@@ -55,9 +53,7 @@ class SketchVC: UIViewController {
         UIGraphicsGetCurrentContext()?.setStrokeColor(viewModel.model.currentCgColor)
         UIGraphicsGetCurrentContext()?.setLineCap(CGLineCap.round)
         UIGraphicsGetCurrentContext()?.setLineWidth(viewModel.model.currentLineWidth)
-        
         sketchView.imageView.image?.draw(in: CGRect(x: 0, y: 0, width: sketchView.imageView.frame.size.width, height: sketchView.imageView.frame.size.height))
-        
         UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
         UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
         UIGraphicsGetCurrentContext()?.strokePath()
@@ -79,28 +75,26 @@ class SketchVC: UIViewController {
         let widthControl = SketchModel.WidthControl(rawValue: CGFloat(sender.tag))
         switch widthControl {
         case .increase:
-            viewModel.model.currentLineWidth += 1.0
-        case .reduce:
-            if viewModel.model.currentLineWidth > 1 {
-                viewModel.model.currentLineWidth -= 1.0
-            }
+            viewModel.widthInc()
+        case .decrease:
+            viewModel.widthDec()
         case .none:
             return
         }
         sketchView.widthLabel.text = "두께: \(viewModel.model.currentLineWidth)"
-        print(viewModel.model.currentLineWidth)
     }
     
-    //MARK: - Motion Event
+    //MARK: - Motion Shake Event
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            sketchView.imageView.image = nil
+            clear()
         }
     }
     
     //MARK: - Configure
     private func configure(){
         sketchView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(sketchView)
         sketchView.dismissButton.addTarget(self, action: #selector(backToBerforeVC), for: .touchUpInside)
         sketchView.clearButton.addTarget(self, action: #selector(clear), for: .touchUpInside)
         sketchView.redButton.addTarget(self, action: #selector(setColor(_:)), for: .touchUpInside)
@@ -108,8 +102,6 @@ class SketchVC: UIViewController {
         sketchView.blackButton.addTarget(self, action: #selector(setColor(_:)), for: .touchUpInside)
         sketchView.widthDecButton.addTarget(self, action: #selector(setWidth(_:)), for: .touchUpInside)
         sketchView.widthIncButton.addTarget(self, action: #selector(setWidth(_:)), for: .touchUpInside)
-        
-        self.view.addSubview(sketchView)
         NSLayoutConstraint.activate([
             sketchView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             sketchView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
@@ -117,5 +109,4 @@ class SketchVC: UIViewController {
             sketchView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
 }

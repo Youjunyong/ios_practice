@@ -58,16 +58,24 @@
 		E1004EFD283B5AB00047004A /* 19.PinchGesture */ = {
 			isa = PBXGroup;
 			children = (
-				E1004EFE283B5AB00047004A /* AppDelegate.swift */,
-				E1004F00283B5AB00047004A /* SceneDelegate.swift */,
+				E1004F0C283B5AB20047004A /* Info.plist */,
+				E1EB6E30283DE6EE00F78E9F /* Resource */,
 				E1004F02283B5AB00047004A /* ViewController.swift */,
 				E1004F04283B5AB00047004A /* Main.storyboard */,
 				E1004F12283B63690047004A /* ImagePinchViewController.swift */,
-				E1004F07283B5AB20047004A /* Assets.xcassets */,
-				E1004F09283B5AB20047004A /* LaunchScreen.storyboard */,
-				E1004F0C283B5AB20047004A /* Info.plist */,
 			);
 			path = 19.PinchGesture;
+			sourceTree = "<group>";
+		};
+		E1EB6E30283DE6EE00F78E9F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E1004F09283B5AB20047004A /* LaunchScreen.storyboard */,
+				E1004F07283B5AB20047004A /* Assets.xcassets */,
+				E1004EFE283B5AB00047004A /* AppDelegate.swift */,
+				E1004F00283B5AB00047004A /* SceneDelegate.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

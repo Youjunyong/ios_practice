@@ -44,7 +44,6 @@ class TabTouchView: UIView{
     }()
     
     //MARK: - UILabel
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -111,7 +110,7 @@ class TabTouchView: UIView{
         return button
     }()
     
-    //MARK: - Initializer & Life Cycle
+    //MARK: - Initializer, Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -126,20 +125,16 @@ class TabTouchView: UIView{
     }
     
     //MARK: - ConfigureUI
-    
     private func configureUI(){
         [messageTitleLabel,messageLabel].forEach{
             horizontalStackView.addArrangedSubview($0)
         }
-        
         [tabCountTitleLabel,tabCountLabel].forEach{
             horizontalStackView2.addArrangedSubview($0)
         }
-        
         [touchCountTitleLabel, touchCountLabel].forEach {
             horizontalStackView3.addArrangedSubview($0)
         }
-        
         [titleLabel ,horizontalStackView, horizontalStackView2, horizontalStackView3, sketchButton].forEach {
             verticalStackView.addArrangedSubview($0)
         }

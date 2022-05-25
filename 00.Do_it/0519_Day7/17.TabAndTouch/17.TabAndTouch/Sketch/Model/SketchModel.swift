@@ -31,7 +31,7 @@ struct SketchModel {
     }
     
     enum WidthControl: CGFloat {
-        case reduce = 400
+        case decrease = 400
         case increase = 500
     }
 

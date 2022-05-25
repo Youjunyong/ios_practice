@@ -144,19 +144,15 @@ class SketchView: UIView {
         [colorLabel , widthLabel, redButton, blueButton, blackButton, widthIncButton, widthDecButton].forEach {
             colorButtonStackView.addArrangedSubview($0)
         }
-        
         [dismissButton, clearButton].forEach {
             horizontalStackView.addArrangedSubview($0)
         }
-        
         [horizontalStackView, label , imageView, colorButtonStackView].forEach {
             verticalStackView.addArrangedSubview($0)
         }
-        
         [verticalStackView, colorButtonStackView].forEach {
             addSubview($0)
         }
-        
         NSLayoutConstraint.activate([
             colorButtonStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             colorButtonStackView.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor),

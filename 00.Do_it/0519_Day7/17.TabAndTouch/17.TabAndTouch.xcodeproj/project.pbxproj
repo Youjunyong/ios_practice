@@ -85,7 +85,6 @@
 		E16BDFE1283B15F50063A8D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E120341C2835DBC0001C5626 /* LaunchScreen.storyboard */,
 				E1CC990A283755C600A0C059 /* TabTouchView.swift */,
 			);
 			path = View;
@@ -129,9 +128,9 @@
 		E1CC990D28375DEE00A0C059 /* TabTouch */ = {
 			isa = PBXGroup;
 			children = (
-				E16BDFE1283B15F50063A8D3 /* View */,
-				E12034152835DBBF001C5626 /* TabTouchViewController.swift */,
 				E11A802028377D3E005E85F0 /* TouchType.swift */,
+				E16BDFE1283B15F50063A8D3 /* View */,
+				E1F4B01A283C974C0076C79A /* Controller */,
 			);
 			path = TabTouch;
 			sourceTree = "<group>";
@@ -139,11 +138,20 @@
 		E1CC990E283763FC00A0C059 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E120341C2835DBC0001C5626 /* LaunchScreen.storyboard */,
 				E12034112835DBBF001C5626 /* AppDelegate.swift */,
 				E12034132835DBBF001C5626 /* SceneDelegate.swift */,
 				E120341A2835DBC0001C5626 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		E1F4B01A283C974C0076C79A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E12034152835DBBF001C5626 /* TabTouchViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
